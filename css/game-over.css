@@ -25,31 +25,30 @@ header > img{
     margin-top: -9vh;
 }
 
-/* Hints over */
-.hintsover{
-    margin-top: 5vh;
-    margin-left: 8vw;
-}
-
-.hintsovertekst{
-    font-size: 45px;
-    margin-top: -60px;
-    margin-left: 60px;
-}
-
-/* Start instructies */
-
-.startinstruscties{
+/* Informatie */
+#informatie{
     text-align: center;
 }
 
-.volginstructies{
-    font-size: 18px;
-    margin-top: 8vh;
-    font-weight: bold;
+#informatie > h2{
+    color: white;
+    background-color: #FF0000;
+    text-align: center;
+    margin: 0 auto;
+    width: 300px;
+    margin-top: 50px;
+    font-size: 45px;
+    padding: 20px 0;
+    -webkit-box-shadow: 0 3px 6px rgba(0,0,0,.2);
+    box-shadow: 0 3px 6px rgba(0,0,0,.2);
 }
 
-.begin{
+#informatie > h3{
+    font-size: 50px;
+    margin-top: 5vh;
+}
+
+#informatie > a > button{
     width: 250px;
     height: 70px;
     border: none;
@@ -60,18 +59,14 @@ header > img{
     font-weight: bold;
     margin-top: 5vh;
     transition: .6s;
-}
-
-.succeszoeken{
-    font-size: 30px;
-    font-weight: bold;
-    margin-top: 5vh;
+    text-align: center;
 }
 
 /* Footer */
+
 footer > img{
-    margin-left: 90px;
-    margin-top: 3vh;
+    margin-left: 75px;
+    margin-top: 5vh;
 }
 
 /* Button animatie */
