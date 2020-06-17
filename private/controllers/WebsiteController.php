@@ -15,8 +15,21 @@ class WebsiteController {
 	public function home() {
 
 		$template_engine = get_template_engine();
-		echo $template_engine->render('homepage');
+		echo $template_engine->render('home');
 
+	}
+
+	public function gameover() {
+
+		$template_engine = get_template_engine();
+		echo $template_engine->render('game-over');
+
+	}
+
+	public function Level1() {
+
+		$template_engine = get_template_engine();
+		echo $template_engine->render('level1');
 	}
 
 }
