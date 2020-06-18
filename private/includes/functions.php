@@ -83,3 +83,9 @@ function current_route_is( $name ) {
 	return false;
 
 }
+
+function sessionCheck() {
+	if ( ! isset($_SESSION) ){
+		session_start();
+	} 
+}

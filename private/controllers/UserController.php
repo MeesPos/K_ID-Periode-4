@@ -15,15 +15,8 @@ class UserController
 
     public function inloggen()
     {
-
-        if (isset($_POST)) {
-
-            $redirectURL = url('home');
-            redirect($redirectURL);
-        }
-
         $template_engine = get_template_engine();
-        echo $template_engine->render('addLevel');
+        echo $template_engine->render('home');
     }
 
     public function displayRegistreren()
@@ -39,12 +32,14 @@ class UserController
 
         // Returns validated data and errors
         $result = validateForm($_POST, $errors);
-
-        if( $result['errors'] === 0 ) {
-            if ( isUserRegistered($result['data']['email']) ) {
+        if( count($result['errors']) === 0 )  {
+            if ( isUserRegistered($result['data']['mail']) ) {
                 // If not already registered, make account and log in
                 createUser($result['data']);
-                logUserIn($result['data']['email']);
+                logUserIn($result['data']['mail']);
+
+                $redirectURL = url('ingelogd.home');
+                redirect($redirectURL);
             } else {
                 $errors['user'] = 'U heeft al een account!';
             }

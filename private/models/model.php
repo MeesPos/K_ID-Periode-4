@@ -64,20 +64,21 @@ function isUserRegistered($mail) {
 function createUser($data) {
 	$connection = dbConnect();
 
-    $sql =  "INSERT INTO `gebruikers` ( `email`,`wachtwoord`)
-             VALUES (:email, :wachtwoord)";
+    $sql =  'INSERT INTO `gebruikers` ( `email`,`wachtwoord`, `hints`)
+             VALUES (:email, :wachtwoord, 3)';
 
     $statement = $connection->prepare($sql);
 
     $safe_wachtwoord = password_hash($data['wachtwoord'], PASSWORD_DEFAULT);
 
     $params = [
-        'email' => $data['email'],
-        'wachtwoord' => $safe_wachtwoord,
+        'email' => $data['mail'],
+        'wachtwoord' => $safe_wachtwoord
     ];
 
     $statement->execute($params);
 }
+
 function logUserIn($mail) {
 	$connection = dbConnect();
     // Get userId via email

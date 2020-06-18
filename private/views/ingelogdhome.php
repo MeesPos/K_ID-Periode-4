@@ -9,9 +9,9 @@
 <body>
     <header>
         <img src="img/waldohead.png" alt="Logo Wally">
-        <h1 class="headertekst">DE APP</h1>
+        <h1 class="headertekst">DE APP<?php echo $_SESSION['user_id']; ?></h1>
     </header>
-
+    
     <section id="informatie">
         <div class="hintsover">
             <img src="img/Icon awesome-lightbulb.png" alt="Hints lichtbol">
