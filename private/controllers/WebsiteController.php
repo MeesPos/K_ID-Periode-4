@@ -19,6 +19,13 @@ class WebsiteController {
 
 	}
 
+	public function ingelogdhome() {
+
+		$template_engine = get_template_engine();
+		echo $template_engine->render('ingelogdhome');
+
+	}
+
 	public function gameover() {
 
 		$template_engine = get_template_engine();

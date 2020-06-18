@@ -12,20 +12,18 @@
         <h1 class="headertekst">DE APP</h1>
     </header>
 
-    <section id="informatie">
-        <div class="hintsover">
-            <img src="img/Icon awesome-lightbulb.png" alt="Hints lichtbol">
-            <h2 class="hintsovertekst">2 hints over</h2>
-        </div>
+    <div class="content">
+        <form action=" <?php echo "#" ?> " method="POST" class="login-form">
+            <input type="text" name="mail" id="mail-input" placeholder="E-mail">
+            <input type="password" name="password" id="password-input" placeholder="Wachtwoord">
+            <input type="submit" name="submit" value="Inloggen">
+        </form>
+        <div class="registreer-div">
+            <p class="registreer-p"> Nog geen speurder? Registreer nu! </p>
+            <a href=" <?php echo url('display.registreren') ?> " class="registreer-a"><button class="registreer-knop">REGISTREER</button></a>
 
-        <div class="startinstruscties">
-            <h2 class="volginstructies">Volg de juiste instructies die je krijgt,<br>en vindt de juiste persoon!</h2>
-            <a href="#" class="beginbutton">
-                <button class="begin">BEGIN ZOEKEN!</button>
-            </a>
-            <h2 class="succeszoeken">SUCCES MET ZOEKEN!</h2>
         </div>
-    </section>
+    </div>
 
     <footer>
         <img src="img/whereswally-slider-logo.png" alt="Waar is Wally logo beneden">

@@ -11,11 +11,24 @@ SimpleRouter::group( [ 'prefix' => site_url() ], function () {
 	// START: Zet hier al eigen routes
 	// Lees de docs, daar zie je hoe je routes kunt maken: https://github.com/skipperbent/simple-php-router#routes
 
-	SimpleRouter::get( '/', 'WebsiteController@home' )->name( 'home' );
 	SimpleRouter::get( '/level1', 'WebsiteController@Level1' )->name( 'level-1' );
 
 
 	SimpleRouter::get( '/game-over', 'WebsiteController@gameover')->name( 'game-over' );
+
+	// Menus
+	SimpleRouter::get( '/play', 'WebsiteController@ingelogdhome' )->name( 'ingelogd.home' );
+	SimpleRouter::get( '/', 'WebsiteController@home' )->name( 'home' );
+
+
+	// Login & register routes
+	SimpleRouter::get( '/login', 'UserController@login' )->name( 'login' );
+	SimpleRouter::get( '/registreer-pagina', 'UserController@displayRegistreren' )->name( 'display.registreren' );
+	SimpleRouter::post( '/registreer-verwerken', 'UserController@verwerkRegistreren' )->name( 'verwerk.registreren' );
+
+
+	// Add Level route
+	SimpleRouter::get( '/addLevel', 'LevelController@addLevel' )->name('addLevel');
 
 
 	// STOP: Tot hier al je eigen URL's zetten
