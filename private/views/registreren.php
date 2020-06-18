@@ -17,16 +17,16 @@
     <div class="content">
         <form action=" <?php echo url('verwerk.registreren') ?> " method="POST" class="registreren-form">
             <input type="email" name="mail" id="mail-input" placeholder="E-mail">
-            <input type="password" name="password" class="password-input" placeholder="Wachtwoord">
-            <input type="password" name="password-repeat" class="password-input" placeholder="Herhaal Wachtwoord">
-            <input type="submit" name="submit" value="Registreren">
+            <input type="password" name="password" id="password-input" placeholder="Wachtwoord">
+            <input type="password" name="password-repeat" id="password-input" placeholder="Herhaal Wachtwoord">
+            <input type="submit" name="submit" value="Registreren" class="login-submit">
         </form>
         <div class="errors">
             <?php if (isset($errors)) {
                 foreach ($errors as $row) { ?>
                     <p class="error-message"><?php echo $row ?></p>
                 <?php    } ?>
-                <a href="<?php echo site_url(); ?>"><button>Terug naar inloggen</button></a>
+                <a href="<?php echo site_url(); ?>"><button class="teruginloggen">Terug naar inloggen</button></a>
             <?php   } ?>
         </div>
     </div>
