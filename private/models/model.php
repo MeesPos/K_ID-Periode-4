@@ -58,7 +58,7 @@ function isUserRegistered($mail) {
 
 	$statement->execute(['email' => $mail]);
 
-	return ($statement->rowCount() === 0);
+	return ($statement);
 }
 
 function createUser($data) {
@@ -95,3 +95,4 @@ function logUserIn($mail) {
 	session_start();
     $_SESSION['user_id']    = $userInfo['id'];
 }
+

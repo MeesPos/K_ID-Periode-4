@@ -23,8 +23,13 @@ SimpleRouter::group( [ 'prefix' => site_url() ], function () {
 
 	// Login & register routes
 	SimpleRouter::get( '/login', 'UserController@login' )->name( 'login' );
+	SimpleRouter::post( '/login-verwerken', 'UserController@verwerkLogin' )->name( 'verwerk.login' );
+
 	SimpleRouter::get( '/registreer-pagina', 'UserController@displayRegistreren' )->name( 'display.registreren' );
 	SimpleRouter::post( '/registreer-verwerken', 'UserController@verwerkRegistreren' )->name( 'verwerk.registreren' );
+
+	SimpleRouter::get( '/uitloggen', 'UserController@uitloggen' )->name( 'loguit' );
+
 
 
 	// Add Level route
