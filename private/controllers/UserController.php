@@ -19,7 +19,7 @@ class UserController
         echo $template_engine->render('home');
     }
 
-    public function verwerkInloggen()
+    public function verwerkLogin()
     {
         $errors = [];
 
@@ -67,8 +67,8 @@ class UserController
                 logUserIn($result['data']['mail']);
                 
                 echo "USER INGELOGD";
-                // $redirectURL = url('ingelogd.home');
-                // redirect($redirectURL);
+                $redirectURL = url('ingelogd.home');
+                redirect($redirectURL);
             } else {
                 $result['errors']['user'] = 'U heeft al een account!';
             }

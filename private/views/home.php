@@ -8,7 +8,7 @@
 </head>
 <body>
     <header>
-        <img src="img/waldohead.png" alt="Logo Wally">
+        <img src="<?php echo site_url() . "/img" ?>/waldohead.png" alt="Logo Wally">
         <h1 class="headertekst">DE APP</h1>
     </header>
 
@@ -34,7 +34,7 @@
     </div>
 
     <footer class="loginfooter">
-        <img src="img/whereswally-slider-logo.png" alt="Waar is Wally logo beneden">
+        <img src="<?php echo site_url() . "/img" ?>/whereswally-slider-logo.png" alt="Waar is Wally logo beneden">
     </footer>
 </body>
 </html>
