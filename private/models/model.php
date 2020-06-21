@@ -4,52 +4,28 @@
 
 function getUsers() {
 	$connection = dbConnect();
-	$sql        = "SELECT * FROM `users`";
+	$sql        = "SELECT * FROM `gebruikers`";
 	$statement  = $connection->query( $sql );
 
 	return $statement->fetchAll();
+}
+
+function getUser() {
+	$connection = dbConnect();
+	$sql        = 'SELECT * FROM `gebruikers` WHERE `id` = :id ';
+	$statement  = $connection->prepare( $sql );
+	$statement->execute([ 'id' => $_SESSION['user_id'] ]);
+	return $statement->fetch();
 }
 
 
 // LEVEL TOEVOEGEN
 
 function addLevel() {
-
+	
 }
 
 // Inloggen & Registreren
-
-function validateForm($post, $errors) {
-	// Get info from POST
-	$mail = $post['mail'];
-	$wachtwoord = $post['password'];
-	$herhaal_wachtwoord = $post['password-repeat'];
-
-	// Check if mail exists
-	if ( $mail === false) {
-		$errors['email'] = 'Geen geldige email ingevuld';
-	}
-
-	// Check if password and repeat password are the same
-	if ( $wachtwoord === $herhaal_wachtwoord ) {
-		// If equal, check if password has 6 characters
-		if ( strlen($wachtwoord) < 6 ) {
-			$errors['wachtwoord'] = 'Wachtwoord bevat minder dan 6 tekens';
-		}
-	} else {
-		$errors['herwachtwoord'] = 'Wachtwoord en herhaal wachtwoord zijn niet hetzelfde.';
-	}
-
-	$data = [
-		'mail' 		 => $mail,
-		'wachtwoord' => $wachtwoord
-	];
-
-	return [
-		'data' 	 => $data,
-		'errors' => $errors
-	];
-}
 
 function isUserRegistered($mail) {
 	$connection = dbConnect();

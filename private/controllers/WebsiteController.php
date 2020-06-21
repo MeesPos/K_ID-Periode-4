@@ -21,9 +21,10 @@ class WebsiteController {
 
 	public function ingelogdhome() {
 		sessionCheck();
+		$userInfo = getUser();
 
 		$template_engine = get_template_engine();
-		echo $template_engine->render('ingelogdhome');
+		echo $template_engine->render('ingelogdhome', ['userInfo' => $userInfo['hints'] ]);
 
 	}
 
