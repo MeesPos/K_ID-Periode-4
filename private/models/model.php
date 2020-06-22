@@ -21,8 +21,23 @@ function getUser() {
 
 // LEVEL TOEVOEGEN
 
-function addLevel() {
-	
+function addLevel($info) {
+	$connection = dbConnect();
+	$sql        = 'INSERT INTO `levels` ( `image`, `graad`, `hint1`, `hint2`, `hint3`, `hint4`, `css`) 
+                   VALUES ( :imagePath, :graad, :hint1, :hint2, :hint3, :hint4, :css) ';
+    $statement  = $connection->prepare( $sql );
+    
+    $params = [
+        'imagePath' => $info['imagePath'],
+        'graad'     => $info['graad'],
+        'hint1'     => $info['hint1'],
+        'hint2'     => $info['hint2'],
+        'hint3'     => $info['hint3'],
+        'hint4'     => $info['hint4'],
+        'css'       => $info['css']
+    ];
+
+	$statement->execute($params);
 }
 
 // Inloggen & Registreren

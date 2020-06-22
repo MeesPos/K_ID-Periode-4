@@ -38,5 +38,14 @@ class LevelCreatorController
         echo $template_engine->render('addLevelForm', [ 'imagePath' => $imagePath ] );
     }
 
+    public function addLevelProcessing()
+    {
+        // Add level to database with form data
+        addLevel($_POST);
+
+        $redirectURL = url('ingelogd.home');
+        redirect($redirectURL);
+    }
+
     
 }
