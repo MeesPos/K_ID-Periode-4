@@ -9,10 +9,13 @@
     <script src="https://kit.fontawesome.com/a82e000026.js"></script>
 </head>
 
-<body style="background: url(<?php echo site_url('/img/fontein-rome.png') ?>);">
+<body style="background: url(<?php echo site_url() . '/uploads/' . $levels['image'] ?>); height: 100%;background-position: center;background-repeat: no-repeat;background-size: cover; " class="level-body">
     <div class="niveau">
-        <h2>Gemiddeld</h2>
+        <h2><?php echo $levels['graad'] ?></h2>
     </div>
+
+    <div class="choice-area-level" id="click-area" style="<?php echo $levels['css'] ?>"></div>
+
 
     <div class="vraag" id="myBtn">
         <i class="fas fa-question"></i>
@@ -41,9 +44,9 @@
         </div>
     </div>
 
-    <div class="hintscount">
+    <div class="hintscount" style="display: none;">
         <i class="fas fa-lightbulb"></i>
-        <h2>2</h2>
+        <h2><?php echo $user['hints'] ?></h2>
     </div>
 
     <input type="checkbox" class="mijnhints" id="menu-schuiver" checked>
@@ -55,26 +58,40 @@
         <!-- Zet hier de hints neer! -->
         <div>
             <h2 class="mijn-hints">MIJN HINTS</h2>
-            <span><i class="fas fa-search search-icons" ></i><p class="hint-text"><?php echo "#" ?></p></span>
-            <span><i class="fas fa-search search-icons"></i><p class="hint-text"><?php echo "#" ?></p></span>
-            <span><i class="fas fa-search search-icons"></i><p class="hint-text"><?php echo "#" ?></p></span>
-            <span><i class="fas fa-search search-icons"></i><p class="hint-text"><?php echo "#" ?></p></span>
+            <span><i class="fas fa-search search-icons" ></i><p class="hint-text"><?php echo $levels['hint1'] ?></p></span>
+            <span><i class="fas fa-search search-icons"></i><p class="hint-text"><?php echo $levels['hint2'] ?></p></span>
+            <span><i class="fas fa-search search-icons"></i><p class="hint-text"><?php echo $levels['hint3'] ?></p></span>
+            <span><i class="fas fa-search search-icons"></i><p class="hint-text"><?php echo $levels['hint4'] ?></p></span>
 
         </div>
     </div>
 
     <div class="puntencount">
-        <h1>2</h1>
+        <h1><?php echo $punten ?></h1>
         <h2>Punten</h2>
+    </div>
+
+    <div class="form-div" style="display: none;">
+        <form method="POST" action="<?php echo site_url('/play') . '/start/' . $levelCount ?>" id="form">
+            <input type="hidden" name="currentPunten" value="<?php echo $punten ?>">
+        </form>
+
     </div>
 </body>
 
 <script>
     let modal = document.getElementById("myModal");
     let btn = document.getElementById("myBtn");
+    let gevonden = document.getElementById("click-area");
+    let form = document.getElementById("form");
+
 
     btn.onclick = function() {
         modal.style.display = "block";
+    }
+
+    gevonden.onclick = function() {
+        form.submit();
     }
 
     window.onclick = function(event) {

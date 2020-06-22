@@ -87,3 +87,25 @@ function logUserIn($mail) {
     $_SESSION['user_id']    = $userInfo['id'];
 }
 
+// Playing
+
+function getLevels() {
+    $connection = dbConnect();
+	$sql        = "SELECT * FROM `levels` ";
+	$statement  = $connection->query( $sql );
+
+	return $statement->fetchAll();
+}
+
+function getLevelsWithOffset($offset) {
+    $connection = dbConnect();
+	$sql        = 'SELECT * FROM `levels` ORDER BY `id` LIMIT 1 OFFSET ' . ':offset ';
+    $statement  = $connection->prepare( $sql );
+    
+    $params = [
+        'offset' => $offset
+    ];
+
+    $statement->execute($params);
+	return $statement->fetchAll();
+}

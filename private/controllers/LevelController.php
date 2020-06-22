@@ -12,16 +12,36 @@ namespace Website\Controllers;
  */
 class LevelController {
 
-	public function addLevel() {
+	public function startPlaying() {
 
-		if( isset($_POST) ) {
+		sessionCheck();
 
-			$redirectURL = url('home');
-			redirect($redirectURL);
-		}
+		$levels = getLevels();
+		$user	= getUser();
+
+		$levelCount = 0;
+		$punten		= 0;
 
 		$template_engine = get_template_engine();
-		echo $template_engine->render('addLevel');
+		echo $template_engine->render('level-template', [ 'levelCount' => $levelCount, 'user' => $user, 'levels' => $levels[$levelCount], 'punten' => $punten]);
+
+	}
+
+	public function nextLevel($levelCount) {
+
+		sessionCheck();
+
+		$punten 		  = $_POST['currentPunten'];
+		$levelCount 	 += 1;
+		$punten			 += 1;
+
+		$levels = getLevels();
+		$user	= getUser();
+
+		
+
+		$template_engine = get_template_engine();
+		echo $template_engine->render('level-template', [ 'levelCount' => $levelCount, 'user' => $user, 'levels' => $levels[$levelCount], 'punten' => $punten]);
 
 	}
 
