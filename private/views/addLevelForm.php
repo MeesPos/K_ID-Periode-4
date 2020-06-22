@@ -13,7 +13,7 @@
     </header>
 
     <div class="content-wrap-ALS">
-    <form action="<?php echo site_url() . '/add-level-processing' ?>" method="POST" >
+    <form action="<?php echo site_url() . '/add-level-processing' ?>" method="POST" class="levelgegevens">
          <input type="hidden" name="imagePath" value="<?php echo $imagePath ?>">
          <input type="text" name="graad" id="graad" placeholder="Moelijkheidsgraad">
          <input type="text" name="hint1" id="hint1" placeholder="Hint 1">
@@ -21,7 +21,7 @@
          <input type="text" name="hint3" id="hint3" placeholder="Hint 3">
          <input type="text" name="hint4" id="hint4" placeholder="Hint 4">
          <input type="text" name="css" id="css" placeholder="css code na style:' ">
-         <input type="submit"/>
+         <input type="submit" class="submitformie"/>
       </form>
     </div>
 

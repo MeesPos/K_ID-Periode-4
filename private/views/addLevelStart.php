@@ -14,10 +14,10 @@
 
     <div class="content-wrap-ALS">
     <form action="<?php echo site_url() . '/level-editor' ?>" method="POST" enctype="multipart/form-data">
-         <input type="file" name="image" accept="image/*" />
-         <input type="submit"/>
+         <input type="file" name="image" accept="image/*" class="upload-file"/>
+         <input type="submit" class="teruginloggen submitupload"/>
       </form>
-    <h3>GROOTTE: 375x912 ALSJEBLIEFT</h3>
+    <h3 class="grootte">GROOTTE: 375x912 ALSJEBLIEFT</h3>
     </div>
 
     <?php if (isset($errors)) {
