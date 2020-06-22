@@ -26,7 +26,9 @@
                 foreach ($errors as $row) { ?>
                     <p class="error-message"><?php echo $row ?></p>
                 <?php    } ?>
+                <?php if (isset($errors['user'])) { ?>
                 <a href="<?php echo site_url(); ?>"><button class="teruginloggen">Terug naar inloggen</button></a>
+                <?php } ?>
             <?php   } ?>
         </div>
     </div>

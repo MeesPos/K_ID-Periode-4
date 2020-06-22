@@ -1,0 +1,23 @@
+html {
+    height: 100vh;
+}
+.level-body {
+    overflow: hidden;
+    font-family: "Nunito", "Open Sans", Arial, Helvetica, sans-serif;
+    margin: 0;
+}
+
+.choice-area {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.continue-button {
+    position: absolute;
+    bottom: 5%;
+    left: 5%;
+}
+.andere-foto-button {
+    position: absolute;
+    bottom: 5%;
+    left: 35%;
+}

@@ -20,11 +20,20 @@ SimpleRouter::group( [ 'prefix' => site_url() ], function () {
 	SimpleRouter::get( '/play', 'WebsiteController@ingelogdhome' )->name( 'ingelogd.home' );
 	SimpleRouter::get( '/', 'WebsiteController@home' )->name( 'home' );
 
+	// Level Creator
+	SimpleRouter::get( '/create-level-start', 'LevelCreatorController@startLevelCreation' )->name( 'startCreation' );
+	SimpleRouter::post( '/level-editor', 'LevelCreatorController@levelEditor' )->name( 'levelEditor' );
+	SimpleRouter::post( '/add-level-form', 'LevelCreatorController@addLevelForm' )->name( 'addLevelForm' );
+	SimpleRouter::post( '/add-level-processing', 'LevelCreatorController@addLevelProcessing' )->name( 'addLevelForm' );
 
 	// Login & register routes
 	SimpleRouter::get( '/login', 'UserController@login' )->name( 'login' );
+	SimpleRouter::post( '/login-verwerken', 'UserController@verwerkLogin' )->name( 'verwerk.login' );
 	SimpleRouter::get( '/registreer-pagina', 'UserController@displayRegistreren' )->name( 'display.registreren' );
 	SimpleRouter::post( '/registreer-verwerken', 'UserController@verwerkRegistreren' )->name( 'verwerk.registreren' );
+
+	SimpleRouter::get( '/uitloggen', 'UserController@uitloggen' )->name( 'loguit' );
+
 
 
 	// Add Level route

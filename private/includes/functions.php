@@ -89,3 +89,96 @@ function sessionCheck() {
 		session_start();
 	} 
 }
+
+function validateForm($post, $errors) {
+	// Get info from POST
+	$mail = $post['mail'];
+	$wachtwoord = $post['password'];
+	$herhaal_wachtwoord = $post['password-repeat'];
+
+	// Check if mail exists
+	if ( $mail === false) {
+		$errors['email'] = 'Geen geldige email ingevuld';
+	}
+
+	// Check if password and repeat password are the same
+	if ( $wachtwoord === $herhaal_wachtwoord ) {
+		// If equal, check if password has 6 characters
+		if ( strlen($wachtwoord) < 6 ) {
+			$errors['wachtwoord'] = 'Wachtwoord bevat minder dan 6 tekens';
+		}
+	} else {
+		$errors['herwachtwoord'] = 'Wachtwoord en herhaal wachtwoord zijn niet hetzelfde.';
+	}
+
+	$data = [
+		'mail' 		 => $mail,
+		'wachtwoord' => $wachtwoord
+	];
+
+	return [
+		'data' 	 => $data,
+		'errors' => $errors
+	];
+}
+
+function verwerkFotoUpload($myfile, $errors)
+{
+
+	// Check of er uberhaupt een file is geupload
+	if (!isset($_FILES['image'])) {
+		$errors['upload'] = 'Geen file ge upload';
+	}
+
+	//  Checken van upload fouten
+	$file_error = $myfile['error'];
+	switch ($file_error) {
+		case UPLOAD_ERR_OK:
+			break;
+		case UPLOAD_ERR_NO_FILE:
+			$errors['myfile'] = 'Er is geen bestand geupload';
+			break;
+		case UPLOAD_ERR_CANT_WRITE:
+			$errors['myfile'] = 'Kan niet schrijven naar disk';
+			break;
+		case UPLOAD_ERR_INI_SIZE:
+		case UPLOAD_ERR_FORM_SIZE:
+			$errors['myfile'] = 'Dit bestand is te groot, pas php.ini aan';
+			break;
+		default:
+			$errors['myfile'] = 'Onbekeden fout';
+	}
+
+	if (count($errors) === 0) {
+
+		$file_name = $myfile['name'];
+		$file_size = $myfile['size'];
+		$file_tmp = $myfile['tmp_name'];
+		$file_type = $myfile['type'];
+
+		// Is het een afbeelding check  
+		$valid_image_types = [
+			2 => 'jpg',
+			3 => 'png'
+		];
+		$image_type        = exif_imagetype($file_tmp);
+		if ($image_type !== false) {
+			// Juiste extensie opzoeken, die gaan we zo gebruiken bij het maken van de nieuwe bestandsnaam
+			$file_extension = $valid_image_types[$image_type];
+		} else {
+			$errors['myfile'] = 'Dit is geen afbeelding!';
+		}
+	}
+
+	if (count($errors) === 0) {
+
+		// Bestandsnaam genereren
+		$new_filename   = sha1_file($file_tmp) . '.' . $file_extension;
+		$final_filename = 'uploads/' . $new_filename;
+
+		// met move_uploaded_file verplaats je het tijdelijke bestand naar de uiteindelijke plek
+		move_uploaded_file($file_tmp, $final_filename); // dus van tijdelijke bestandsnaam naar de originele naam (in de huidige map);
+
+		return $new_filename;
+	}
+}
