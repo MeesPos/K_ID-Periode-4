@@ -65,8 +65,7 @@ class UserController
                 // If not already registered, make account and log in
                 createUser($result['data']);
                 logUserIn($result['data']['mail']);
-                
-                echo "USER INGELOGD";
+            
                 $redirectURL = url('ingelogd.home');
                 redirect($redirectURL);
             } else {

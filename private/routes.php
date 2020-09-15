@@ -26,6 +26,12 @@ SimpleRouter::group( [ 'prefix' => site_url() ], function () {
 	SimpleRouter::post( '/add-level-form', 'LevelCreatorController@addLevelForm' )->name( 'addLevelForm' );
 	SimpleRouter::post( '/add-level-processing', 'LevelCreatorController@addLevelProcessing' )->name( 'addLevelForm' );
 
+	// Start playing
+	SimpleRouter::get( '/play/start', 'LevelController@startPlaying' )->name( 'startPlaying' );
+	SimpleRouter::post( '/play/start/{levelCount}', 'LevelController@nextLevel' )->name( 'nextLevel' );
+
+
+
 	// Login & register routes
 	SimpleRouter::get( '/login', 'UserController@login' )->name( 'login' );
 	SimpleRouter::post( '/login-verwerken', 'UserController@verwerkLogin' )->name( 'verwerk.login' );
