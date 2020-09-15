@@ -7,9 +7,8 @@
     <link rel="stylesheet" href="<?php echo site_url('/css/home.css') ?>">
 </head>
 <body>
-    <header>
-        <img src="<?php echo site_url() . "/img" ?>/waldohead.png" alt="Logo Wally">
-        <h1 class="headertekst">DE APP</h1>
+    <header class="header">
+        <h1 class="headertekst">WAAR IS WALDO <br> DE APP</h1>
     </header>
 
     <div class="content">

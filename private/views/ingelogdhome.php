@@ -20,7 +20,7 @@
         </div>
 
         <div class="startinstruscties">
-            <h2 class="volginstructies">Volg de juiste instructies die je krijgt,<br>en vindt de juiste persoon!</h2>
+            <h2 class="volginstructies">Druk links op de hints <br>en vindt de juiste persoon <br> naar wie de hints leiden!</h2>
             <a href="<?php echo site_url() . '/play/start' ?>" class="beginbutton">
                 <button class="begin">BEGIN ZOEKEN!</button>
             </a>
