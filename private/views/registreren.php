@@ -16,8 +16,13 @@
 
     <div class="content">
         <form action=" <?php echo url('verwerk.registreren') ?> " method="POST" class="registreren-form">
+            <label for="mail">E-mail adres</label><br>
             <input type="email" name="mail" id="mail-input" placeholder="E-mail">
+
+            <label for="password">Wachtwoord</label><br>
             <input type="password" name="password" id="password-input" placeholder="Wachtwoord">
+            
+            <label for="password-repeat">Wachtwoord Herhalen</label><br>
             <input type="password" name="password-repeat" id="password-input" placeholder="Herhaal Wachtwoord">
             <input type="submit" name="submit" value="Registreren" class="login-submit">
         </form>

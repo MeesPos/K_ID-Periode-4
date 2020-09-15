@@ -83,7 +83,8 @@ button:active{
 #mail-input, #password-input{
     width: 80vw;
     height: 5vh;
-    margin-top: 4vh;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
     border: none;
     background-color: #efefef;
     border-radius: 10px;
@@ -108,7 +109,7 @@ button:active{
     background-color: #FF0000;
     height: 5vh;
     margin-top: 4vh;
-    margin-bottom: 2vh;
+    margin-bottom: 2.5vh;
     border: none;
     color: white;
     font-size: 20px;
