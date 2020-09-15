@@ -5,24 +5,21 @@
 }
 
 /* Header */
-header{
-    height: 100px;
+.header{
+    height: auto;
     background-color: #FF0000;
     -webkit-box-shadow: 0 3px 6px rgba(0,0,0,.2);
     box-shadow: 0 3px 6px rgba(0,0,0,.2);
 }
 
-header > img{
-    margin-top: 5px;
-    margin-left: 50px;
-}
 
 .headertekst{
     color: white;
-    font-size: 50px;
+    font-size: 30px;
     font-weight: bold;
-    margin-left: 40vw;
-    margin-top: -9vh;
+    text-align: center;
+    padding: 10px 0;
+    
 }
 
 /* Hints over */
